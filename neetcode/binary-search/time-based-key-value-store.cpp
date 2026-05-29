@@ -1,6 +1,7 @@
 #include "leet.h"
 
 
+class TimeMap {
 public:
     unordered_map<string, vector<pair<int, string>>> map;
     TimeMap() {
@@ -33,4 +34,5 @@ public:
         }
     }
 };
+
 
