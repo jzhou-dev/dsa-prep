@@ -6,11 +6,10 @@ public:
     string getHappyString(int n, int k) {
         string characters = "abc";
         string happyString = "";
-        vector<bool> used(n, false);
-        getHappyString(n, k, happyString, characters, used);
+        getHappyString(n, k, happyString, characters);
         return result;
     }
-    void getHappyString(int n, int& k, string& happyString, string& characters, vector<bool>& used) {
+    void getHappyString(int n, int& k, string& happyString, string& characters) {
         if (happyString.size() == n) {
             k--;
             if (k == 0) {
@@ -21,10 +20,8 @@ public:
         for (int i = 0; i < characters.size(); i++) {
             if (happyString.empty() || happyString.back() != characters[i]) {
                 happyString.push_back(characters[i]);
-                used[i] = true;
-                getHappyString(n, k, happyString, characters, used);
+                getHappyString(n, k, happyString, characters);
                 happyString.pop_back();
-                used[i] = false;
             }
         }
     }
